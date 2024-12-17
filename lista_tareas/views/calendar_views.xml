@@ -1,0 +1,11 @@
+<odoo>
+    <record id="lista_tareas_calendar" model="ir.ui.view">
+        <field name="name">lista_tareas.calendar</field>
+        <field name="model">lista_tareas.lista_tareas</field>
+        <field name="arch" type="xml">
+            <calendar date_start="fecha_asignada">
+                <field name="tarea"/>
+            </calendar>
+        </field>
+    </record>
+</odoo>

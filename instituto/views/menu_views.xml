@@ -1,0 +1,36 @@
+<odoo>
+    <!-- Acción para Cicles Formatius -->
+    <record id="action_cicle" model="ir.actions.act_window">
+        <field name="name">Cicles Formatius</field>
+        <field name="res_model">formacio.cicle</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Acción para Mòduls -->
+    <record id="action_modul" model="ir.actions.act_window">
+        <field name="name">Mòduls</field>
+        <field name="res_model">formacio.modul</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Acción para Alumnes -->
+    <record id="action_alumne" model="ir.actions.act_window">
+        <field name="name">Alumnes</field>
+        <field name="res_model">formacio.alumne</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Acción para Professors -->
+    <record id="action_professor" model="ir.actions.act_window">
+        <field name="name">Professors</field>
+        <field name="res_model">formacio.professor</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <menuitem id="menu_formacio_root" name="Formació"/>
+    <menuitem id="menu_cicles" name="Cicles Formatius" parent="menu_formacio_root" action="action_cicle"/>
+    <menuitem id="menu_moduls" name="Mòduls" parent="menu_formacio_root" action="action_modul"/>
+    <menuitem id="menu_alumnes" name="Alumnes" parent="menu_formacio_root" action="action_alumne"/>
+    <menuitem id="menu_professors" name="Professors" parent="menu_formacio_root" action="action_professor"/>
+
+    
+</odoo>

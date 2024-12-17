@@ -1,0 +1,37 @@
+<odoo>
+    <record id="view_usuaris_list" model="ir.ui.view">
+        <field name="name">Usuaris List</field>
+        <field name="model">formacio.alumne</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="email"/>
+                <field name="role" string="Rol"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_usuaris_form" model="ir.ui.view">
+        <field name="name">Usuaris Form</field>
+        <field name="model">formacio.alumne</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="email"/>
+                        <field name="role" readonly="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_usuaris" model="ir.actions.act_window">
+        <field name="name">Usuaris</field>
+        <field name="res_model">formacio.alumne</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id="menu_usuaris" name="Usuaris" parent="menu_formacio_root" action="action_usuaris"/>
+</odoo>

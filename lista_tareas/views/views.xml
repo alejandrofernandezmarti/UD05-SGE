@@ -1,0 +1,47 @@
+<odoo>
+    <data>
+        <!-- Vista de lista -->
+        <record model="ir.ui.view" id="lista_tareas_list_view">
+            <field name="name">lista_tareas.list</field>
+            <field name="model">lista_tareas.lista_tareas</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="tarea"/>
+                    <field name="prioridad"/>
+                    <field name="urgente"/>
+                    <field name="realizada"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- Vista de formulario -->
+        <record model="ir.ui.view" id="lista_tareas_form_view">
+            <field name="name">lista_tareas.form</field>
+            <field name="model">lista_tareas.lista_tareas</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="tarea"/>
+                            <field name="prioridad"/>
+                            <field name="urgente"/>
+                            <field name="realizada"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Acción para abrir vistas -->
+        <record id="lista_tareas_action" model="ir.actions.act_window">
+            <field name="name">Lista de Tareas</field>
+            <field name="res_model">lista_tareas.lista_tareas</field>
+            <field name="view_mode">kanban,calendar,form</field>
+        </record>
+
+        <!-- Menú principal -->
+        <menuitem name="Gestión de Tareas" id="menu_lista_tareas_root"/>
+        <menuitem name="Lista de Tareas" id="menu_lista_tareas" parent="menu_lista_tareas_root" action="lista_tareas_action"/>
+
+    </data>
+</odoo>

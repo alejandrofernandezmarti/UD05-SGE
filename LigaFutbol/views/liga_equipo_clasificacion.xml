@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+
+    <!-- (list) View -->
+    <record id="liga_equipo_clasificacion_view_list" model="ir.ui.view">
+        <field name="name">Lista de Equipos de la liga</field>
+        <field name="model">liga.equipo</field>
+        <field name="arch" type="xml">
+            <!-- Indicamos el orden para poner la clasificacion-->
+            <list default_order="puntos desc">
+                <field name="escudo" widget="image" class="oe_avatar" />
+                <field name="nombre" />
+                <field name="puntos" />
+                <field name="jugados" />
+                <field name="goles_a_favor" />
+                <field name="goles_en_contra" />
+                <field name="victorias" />
+                <field name="empates" />
+                <field name="derrotas" />
+            </list>
+        </field>
+    </record>
+
+    <!-- Vista busqueda-->
+    <record id="liga_equipo_clasificacion_view_search" model="ir.ui.view">
+        <field name="name">Búsqueda de Equipos por nombre</field>
+        <field name="model">liga.equipo</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="nombre" />
+            </search>
+        </field>
+    </record>
+
+
+    <!-- Indicamos el action de esta nueva vista -->
+    <record id='liga_equipo_clasificacion_action' model='ir.actions.act_window'>
+        <field name="name">Clasificacion de la liga</field>
+        <field name="res_model">liga.equipo</field>
+        <!-- Indicamos que este modelo se puede ver en  -->
+        <field name="view_mode">list</field>
+        <!-- Si no lo ponemos, cogera la otra vista  definida en equipo
+        esto se usa para diferentes vistas de un mismo modelo-->
+        <field name="view_id" ref="liga_equipo_clasificacion_view_list" />
+    </record>
+
+    <menuitem name="Clasificacion" id="liga_equipo_clasificacion_menu" parent="liga_base_menu" action="liga_equipo_clasificacion_action" />
+
+
+    <template id="report_partido_view">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.internal_layout">
+                    <div class="page">
+                        <h2>Resultado del Partido</h2>
+                        <p>Local: <span t-field="doc.equipo_casa.nombre" /></p>
+                        <p>Visitante: <span t-field="doc.equipo_fuera.nombre" /></p>
+                        <p>Resultado: <span t-field="doc.goles_casa" /> - <span t-field="doc.goles_fuera" /></p>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+    
+    <report id="report_partido"
+            model="liga.partido"
+            string="Informe del Partido"
+            name="liga.report_partido_view"
+            file="liga.report_partido_view"
+            report_type="qweb-pdf"/>
+
+
+</odoo>

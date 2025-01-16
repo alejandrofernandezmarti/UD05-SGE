@@ -1,0 +1,12 @@
+<odoo>
+    <record id="view_usuaris_list" model="ir.ui.view">
+        <field name="name">Usuaris List</field>
+        <field name="model">formacio.alumne</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="email"/>
+            </list>
+        </field>
+    </record>
+</odoo>

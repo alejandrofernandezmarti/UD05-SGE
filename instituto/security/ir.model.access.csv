@@ -1,7 +1,7 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_formacio_cicle_director,access.formacio.cicle.director,model_formacio_cicle,group_director,1,1,1,1
-access_formacio_modul_director,access.formacio.modul.director,model_formacio_modul,group_director,1,1,1,1
-access_formacio_alumne_director,access.formacio.alumne.director,model_formacio_alumne,group_director,1,1,1,1
-access_formacio_professor_director,access.formacio.professor.director,model_formacio_professor,group_director,1,1,1,1
+access_cicle_director,access.cicle.director,model_formacio_cicle,grupo_director,1,1,1,1
+access_modul_director,access.modul.director,model_formacio_modul,grupo_director,1,1,1,1
+access_alumne_director,access.alumne.director,model_formacio_alumne,grupo_director,1,1,1,1
+access_professor_director,access.professor.director,model_formacio_professor,grupo_director,1,1,1,1
 
-access_formacio_professor_lectura,access.formacio.professor.lectura,model_formacio_professor,group_professor,1,0,0,0
+access_professor_read,access.professor.read,model_formacio_professor,grupo_professor,1,0,0,0

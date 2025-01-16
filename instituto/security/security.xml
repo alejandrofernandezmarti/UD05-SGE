@@ -1,15 +1,11 @@
 <odoo>
-    <data noupdate="1">
-        <!-- Grupo Director -->
-        <record id="group_director" model="res.groups">
-            <field name="name">Director</field>
-            <field name="category_id" ref="base.module_category_user_type"/>
-        </record>
+    <record id="grupo_director" model="res.groups">
+        <field name="name">Director</field>
+        <field name="category_id" ref="base.module_category_hidden"/>
+    </record>
 
-        <!-- Grupo Professor -->
-        <record id="group_professor" model="res.groups">
-            <field name="name">Professor</field>
-            <field name="category_id" ref="base.module_category_user_type"/>
-        </record>
-    </data>
+    <record id="grupo_professor" model="res.groups">
+        <field name="name">Professor</field>
+        <field name="category_id" ref="base.module_category_hidden"/>
+    </record>
 </odoo>

@@ -55,29 +55,10 @@ class LigaEquipo(models.Model):
     
     puntos= fields.Integer( compute="_compute_puntos",default=0, store=True)
     
-    @api.depends('victorias', 'empates', 'goles_a_favor', 'goles_en_contra')
+    @api.depends('victorias','empates')
     def _compute_puntos(self):
         for record in self:
-            # Reiniciar puntos
-            record.puntos = 0
-
-            # Diferencia de goles
-            diferencia_goles = record.goles_a_favor - record.goles_en_contra
-
-            # Victoria
-            if record.victorias > 0:
-                if diferencia_goles >= 4:
-                    record.puntos += 4  # 3 puntos + 1 extra por diferencia de goles
-                else:
-                    record.puntos += 3  # Solo 3 puntos por victoria regular
-
-            # Empate
-            if record.empates > 0:
-                record.puntos += record.empates  # 1 punto por cada empate
-
-            # Derrota con diferencia de 4 o más goles
-            if diferencia_goles <= -4:
-                record.puntos -= 1  # -1 punto por derrota con gran diferencia
+            record.puntos = record.victorias * 3 + record.empates
 
 
 

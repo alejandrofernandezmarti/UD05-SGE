@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-
-
-
     <!-- (list) View -->
     <record id="liga_equipo_clasificacion_view_list" model="ir.ui.view">
         <field name="name">Lista de Equipos de la liga</field>
@@ -35,14 +32,10 @@
     </record>
 
 
-    <!-- Indicamos el action de esta nueva vista -->
     <record id='liga_equipo_clasificacion_action' model='ir.actions.act_window'>
         <field name="name">Clasificacion de la liga</field>
         <field name="res_model">liga.equipo</field>
-        <!-- Indicamos que este modelo se puede ver en  -->
         <field name="view_mode">list</field>
-        <!-- Si no lo ponemos, cogera la otra vista  definida en equipo
-        esto se usa para diferentes vistas de un mismo modelo-->
         <field name="view_id" ref="liga_equipo_clasificacion_view_list" />
     </record>
 

@@ -80,8 +80,12 @@ class LigaPartido(models.Model):
                     #Miramos si es victoria o derrota
                     if recordPartido.goles_casa>recordPartido.goles_fuera:
                         recordEquipo.victorias=recordEquipo.victorias+1
+                        if recordPartido.goles_casa >= 4:
+                            recordEquipo.puntos += 1
                     elif recordPartido.goles_casa<recordPartido.goles_fuera:
                         recordEquipo.derrotas=recordEquipo.derrotas+1
+                        if recordPartido.goles_fuera >= 4:
+                            recordEquipo.puntos -= 1
                     else:
                         recordEquipo.empates=recordEquipo.empates+1
                         
@@ -95,14 +99,20 @@ class LigaPartido(models.Model):
                     #Miramos si es victoria o derrota
                     if recordPartido.goles_casa<recordPartido.goles_fuera:
                         recordEquipo.victorias=recordEquipo.victorias+1
+                        if recordPartido.goles_fuera >= 4:
+                            recordEquipo.puntos += 1
                     elif recordPartido.goles_casa>recordPartido.goles_fuera:
                         recordEquipo.derrotas=recordEquipo.derrotas+1
+                        if recordPartido.goles_casa >= 4:
+                            recordEquipo.puntos -= 1
                     else:
                         recordEquipo.empates=recordEquipo.empates+1
                     
                     #Sumamos goles a favor y en contra
                     recordEquipo.goles_a_favor=recordEquipo.goles_a_favor+recordPartido.goles_fuera
                     recordEquipo.goles_en_contra=recordEquipo.goles_en_contra+recordPartido.goles_casa
+
+    
 
 
 

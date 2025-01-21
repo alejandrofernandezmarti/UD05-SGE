@@ -4,3 +4,4 @@ acl_partido,liga.partido_default,model_liga_partido,,1,1,1,1
 acl_liga_equipo_wizard,liga.equipo_wizard,model_liga_equipo_wizard,,1,1,1,1
 access_liga_partido_user,access.liga.partido.user,model_liga_partido,base.group_user,1,1,1,1
 access_liga_partido_wizard,Access Liga Partido Wizard,model_liga_partido_wizard,,1,1,1,1
+access_liga_partido_public,Access Liga Partido Public,model_liga_partido,,1,1,1,1
